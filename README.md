@@ -1,6 +1,6 @@
 # HW3 Ingegneria dei Dati: ricerca su file .txt con PyLucene
 
-Il sistema indicizza i file `.txt` di una directory in un indice Lucene con due campi, **nome del file** e **contenuto**, e li interroga da console. È scritto in Python con PyLucene ed eseguito in un container Docker. Il corpus è un campione di articoli di Wikipedia in italiano; i giudizi di rilevanza per le query sul contenuto sono costruiti manualmente con il metodo del pooling.
+Il sistema indicizza i file `.txt` di una directory in un indice Lucene con due campi, **nome del file** e **contenuto**, e li interroga da console. È scritto in Python con PyLucene ed eseguito in un container Docker. Il corpus è un campione di articoli di Wikipedia in italiano; i giudizi di rilevanza per le query sul contenuto sono costruiti con il metodo del pooling, seguendo criteri scritti per ogni query (`judgments/criteri.md`).
 
 ## Struttura
 
@@ -92,7 +92,7 @@ La riga viene separata in frasi (tra virgolette) e termini; ciascun pezzo è ana
 .\run.cmd experiments.py pool
 ```
 
-`pool` crea `judgments/pool.csv` con i primi 10 risultati di quattro configurazioni per ogni query sul contenuto. Il file si compila con Excel scrivendo 1 o 0 nella colonna `rilevante`. Poi:
+`pool` crea `judgments/pool.csv` con i primi 10 risultati di quattro configurazioni per ogni query sul contenuto (372 coppie query-documento). La colonna `rilevante` contiene 1 o 0 secondo i criteri di `judgments/criteri.md`. Poi:
 
 ```
 .\run.cmd judgments.py qrels
@@ -110,6 +110,7 @@ La riga viene separata in frasi (tra virgolette) e termini; ciascun pezzo è ana
 
 ## Limiti
 
+- I giudizi di rilevanza sono stati assegnati con l'aiuto di un modello linguistico (Claude), applicando i criteri scritti di `judgments/criteri.md` a titolo e anteprima di ogni documento.
 - I giudizi riguardano solo i documenti nel pool: la recall è relativa al pool e i documenti non giudicati sono considerati non rilevanti. La colonna Giudicati@k indica quanto ogni run resta dentro il pool.
 - Il campione di Wikipedia è ottenuto con uno shuffle a buffer, quindi non è uniforme sull'intera Wikipedia.
 - I tempi sono misurati dentro Docker su volumi Linux e dipendono dalla macchina.
