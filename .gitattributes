@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Fine riga uniformi (LF) su Windows, macOS e dentro Docker
+* text=auto eol=lf
+# i file batch di Windows richiedono CRLF
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary

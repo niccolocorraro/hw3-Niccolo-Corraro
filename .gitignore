@@ -1,0 +1,17 @@
+# dataset generati dagli script
+data/
+# indici Lucene
+index/
+# risultati delle query in batch (si rigenerano)
+runs/
+# Python
+.venv/
+__pycache__/
+*.pyc
+# sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+# editor
+.vscode/
+.idea/

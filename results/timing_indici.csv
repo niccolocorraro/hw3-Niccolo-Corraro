@@ -1,0 +1,5 @@
+data_ora,giro,n_file,indicizzati,scartati,analyzer_contenuto,modo_nome,store_contenuto,lettura_ms,inserimento_ms,commit_ms,totale_ms,indice_mb
+2026-11-13T14:48:00,1,50000,50000,0,italian,ngram,no,1026.9,9600.6,419.0,12514.9,69.6
+2026-11-13T14:48:11,1,50000,50000,0,leggero,ngram,no,874.8,9538.2,298.2,10740.1,92.0
+2026-11-13T14:48:23,1,50000,50000,0,whitespace,ngram,no,894.1,9963.1,376.8,11263.1,113.6
+2026-11-13T14:48:32,1,50000,50000,0,italian,prefix,no,836.2,8167.1,290.0,9320.7,73.9
